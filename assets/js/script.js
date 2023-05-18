@@ -2,11 +2,14 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+
+  // Current day and logs it into header based on id=currentDay.
   var day = dayjs();
-  console.log(day);
-  // Current hour in the 
+  $('#currentDay').text(day.format('MMM DD, YYYY h:mma.'));
+  // Current hour
   var hour = dayjs().hour() - 12;
   console.log(hour);
+
   // Select every instance of time-block and loop though it
   $('.time-block').each(function() {
     // From all of 'this', which represents '.time-block'. Grab the id (the actual named/declared Id inputed in HTML) and split the corresponding string.
@@ -25,6 +28,23 @@ $(function () {
       $(this).addClass('present');
     }
 
+  // Event listener on button press.
+  $('.saveBtn').on('click', function() {
+    // Represents the text corresponding to the button. DUE TO 'this' and stores it in a variable.
+    var descriptionEl = $(this).siblings('.description').val();
+    // Represents the hour of THIS button clicked
+    var time = $(this).parent().attr("id").split('-')[1];
+
+    // Making sure I am selecting the correct values
+    console.log(time);
+    console.log(descriptionEl);
+
+    // Key = time, value = description for that specific button clicked due to 'this' object.
+    localStorage.setItem(time, descriptionEl);
+
+    // For every element with a period of hour-x and description, go to local storage and set its value(text) equal to whatever was input.
+    $('#hour-' + time + '.description').val(localStorage.getItem(time));
+  })
 
   })
   // TODO: Add a listener for click events on the save button. This code should
@@ -46,7 +66,7 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-  $('#currentDay').text(day.format('MMM DD, YYYY h:mma.'));
+
   // var currentDayEl = document.getElementById('currentDay');
   // currentDayEl.textContent = day;
 
