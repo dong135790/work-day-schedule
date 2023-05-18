@@ -9,15 +9,16 @@ $(function () {
   console.log(hour);
   // Select every instance of time-block and loop though it
   $('.time-block').each(function() {
+    // From all of 'this', which represents '.time-block'. Grab the id (the actual named/declared Id inputed in HTML) and split the corresponding string.
     // Split the string at '-' symbol. [0] represents hour [1] represent numeric value of hour.
     var id = $(this).attr('id').split('-')[1];
-    console.log(id);
+    // Represents numeric value of hour from the id (string that was split) on the corresponding HTML.
     var rowHour = parseInt(id);
     console.log(rowHour);
 
+    // Will determine your current time and what is past/present.
     if (hour < rowHour) {
       $(this).addClass('future');
-      
     } else if (hour > rowHour) {
       $(this).addClass('past');
     } else {
