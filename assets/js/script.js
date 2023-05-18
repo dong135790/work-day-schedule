@@ -4,12 +4,12 @@
 $(function () {
   var day = dayjs();
   console.log(day);
-  var hour = dayjs().hour() - 12;
+  // Current hour in the 
+  var hour = dayjs().hour() - 19;
   console.log(hour);
   // Select every instance of time-block and loop though it
   $('.time-block').each(function() {
-    var thisis = $(this).attr('id');
-    console.log(thisis)
+    // Split the string at '-' symbol. [0] represents hour [1] represent numeric value of hour.
     var id = $(this).attr('id').split('-')[1];
     console.log(id);
     var rowHour = parseInt(id);
@@ -17,6 +17,7 @@ $(function () {
 
     if (hour < rowHour) {
       $(this).addClass('future');
+      
     } else if (hour > rowHour) {
       $(this).addClass('past');
     } else {
