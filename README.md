@@ -34,8 +34,8 @@ NA
 
 ## Resources
 
-[Github Repository](https://github.com/dong135790/quiz-code-test)
-[Deployed Site](https://dong135790.github.io/quiz-code-test/)
+[Github Repository](https://github.com/dong135790/work-day-schedule)
+[Deployed Site](https://dong135790.github.io/work-day-schedule/)
 
 ## Project Status
 
