@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
+$(document).ready(function () {
 
   // Current day and logs it into header based on id=currentDay.
   var day = dayjs();
