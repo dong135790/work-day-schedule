@@ -43,10 +43,10 @@ $(function () {
     localStorage.setItem(time, descriptionEl);
 
     // For every element with a period of hour-x and description, go to local storage and set its value(text) equal to whatever was input.
+    $('#hour-' + time + '.description').val(localStorage.getItem(time));
   })
   
   })
-  $('#hour-' + time + '.description').val(localStorage.getItem(time));
 
 });
 
