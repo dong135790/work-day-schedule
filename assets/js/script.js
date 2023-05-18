@@ -42,9 +42,10 @@ $(document).ready(function () {
 
     // Key = time, value = description for that specific button clicked due to 'this' object.
     localStorage.setItem(time, descriptionEl);
+    // For every element with a period of hour-x and description, go to local storage and set its value(text) equal to whatever was input.
+    $('#hour-' + time + '.description').val(localStorage.getItem(time));
   })
   
-  // For every element with a period of hour-x and description, go to local storage and set its value(text) equal to whatever was input.
-  $('#hour-' + time + '.description').val(localStorage.getItem(time));
+
 });
 
