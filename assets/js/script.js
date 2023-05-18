@@ -5,7 +5,7 @@ $(function () {
   var day = dayjs();
   console.log(day);
   // Current hour in the 
-  var hour = dayjs().hour() - 19;
+  var hour = dayjs().hour() - 12;
   console.log(hour);
   // Select every instance of time-block and loop though it
   $('.time-block').each(function() {
@@ -16,7 +16,7 @@ $(function () {
     var rowHour = parseInt(id);
     console.log(rowHour);
 
-    // Will determine your current time and what is past/present.
+    // Will determine your current time and what is past/present/future.
     if (hour < rowHour) {
       $(this).addClass('future');
     } else if (hour > rowHour) {
@@ -24,6 +24,8 @@ $(function () {
     } else {
       $(this).addClass('present');
     }
+
+
   })
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -44,8 +46,9 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-  var currentDayEl = document.getElementById('currentDay');
-  currentDayEl.textContent = day;
+  $('#currentDay').text(day.format('MMM DD, YYYY h:mma.'));
+  // var currentDayEl = document.getElementById('currentDay');
+  // currentDayEl.textContent = day;
 
   // currentDayEl.append();
 });
